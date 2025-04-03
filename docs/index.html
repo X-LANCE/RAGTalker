@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RAGTalker</title>
+    <link rel="shortcut icon" type="image/jpg" href="" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://kit.fontawesome.com/49f46e7382.js" crossorigin="anonymous"></script>
+    <style>
+        @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+        @import "https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.2.0/dist/bulma-tooltip.min.css";
+        @media screen and (min-width: 1024px) {
+            .container {
+                max-width: 860px;
+            }
+        }
+        .authors>span {
+            padding: 0 0.5rem;
+            display: inline-block;
+        }
+        @media only screen and (max-width: 480px) {
+            a.button.is-rounded.is-link.is-light:not(:last-child) {
+                margin-bottom: 0.75em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h1 class="title is-2 has-text-centered">
+                <strong>RAGTalker: Supplementary Materials</strong>
+            </h1>
+            <p class="subtitle is-6 has-text-centered">
+                <a href="#" class="has-text-centered">Paper (Coming Soon)</a>
+            </p>
+        </div>
+    <section>
+
+     <section class="section">
+        <div class="container is-max-desktop">
+            <p>Index Links:</p>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#video2video-transformation">1. Video2Video Transformation</a></li>
+                    <li><a href="#gate-score-visualization">2. Gate Score Visualization</a></li>
+                    <li><a href="#audio-driven-talking-face">3. Audio-Driven / Video Reconstruction Demos</a></li>
+                    <li><a href="#method-comparison-audio-driven">4. Method Comparison (Audio-Driven)</a></li>
+                    <li><a href="#method-comparison-video-reconstruction">5. Method Comparison (Video-Reconstruction)</a></li>
+                    <li><a href="#clustering-analysis">6. Clustering Visualization</a></li>
+                    <li><a href="#video-editing-case">7. Video Editing Case</a></li>
+                    <li><a href="#ablation-study">8. Ablation Study</a></li>
+                </ul>
+            </nav>
+        
+        </div>
+    </section>
+
+     <!-- New navigation list -->
+     <section class="section">
+        <div id="video2video-transformation" class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <hr style="margin-top:0px">
+                <p><center><strong><font size="5">Video2Video Transformation</font></strong></center></p>
+                <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                    <p style="margin: 0;">
+                        <strong>Video2Video Transformation</strong> uses the latter half of the video to drive its first half, serving as an evaluation of the algorithm's <strong>video editing capabilities</strong>. 
+                        
+                        Since the source video is not a static image, existing algorithms are easily influenced by the source video's varying states, leading to <strong>instability</strong>. In particular, when the original video includes <strong>closed-eye frames</strong>, the edited video often exhibits disturbances or abrupt transitions around these frames.
+                        
+                        The first column is the <strong>Source Video</strong> (providing texture), the second column is the <strong>Driven Video</strong> (providing motion), the third column is <strong>LivePortrait</strong> (synthesized result), and the fourth column shows our algorithm's result, <strong>RAGTalker</strong> (synthesized result).
+                    </p>
+                </div>
+
+
+
+                <p></p>
+
+                <p><center><strong><font size="4"> Case 1 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video1:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/1.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+       <p><center><strong><font size="4"> Case 2 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video2:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/2.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+        
+        <p><center><strong><font size="4"> Case 3 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video3:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/3.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 4 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video4:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/4.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 5 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video5:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/5.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 6 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video6:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/6.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 7 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video7:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/7.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 8 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video8:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/8.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 9 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video9:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/9.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            <p><center><strong><font size="4"> Case 10 </font></strong></center></p>
+                <p></p>
+
+                <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p>Video10:</p>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="vid2vid/10.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                <!-- <p><center><font size="2"> Audio samples are from <a href="https://github.com/siddiquelatif/urdu-dataset" class="has-text-centered"> vasa1</a>  </font></center></p> -->
+                
+            </div>
+        </div>
+        </div>
+    </section>
+
+<section class="section">
+    <div id="gate-score-visualization" class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p><center><strong><font size="5">Gate Score Map Visualization</font></strong></center></p>
+                <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                    <p style="margin: 0;">
+                        <strong>Motion-Guided 2D Texture Fusion</strong> is the core innovation of our paper, with <strong>Gate Score</strong> serving as a crucial subcomponent.
+                    </p>
+                    <p style="margin: 0; margin-top: 10px;">
+                        To validate its effectiveness, we visualize how changing motion signals drive a single reference image to reconstruct the entire video, while additional key frames are fed into the fusion module for enhanced <strong>motion cues</strong>.
+                    </p>
+                    <p style="margin: 0; margin-top: 10px;">
+                        We provide <strong>heatmaps</strong> to illustrate the gating process, where regions closer to <strong>red</strong> denote higher gating scores—indicating increased reliance on information from the corresponding reference frame. By dynamically adjusting each reference texture's contribution, the Gate Score ensures that key frames with more relevant motion cues are weighted more heavily in the fusion process.
+                    </p>
+
+                    <p style="margin: 0; margin-top: 10px;">
+                        This is just an example of using multi-view images to enhance the multi-view capabilities of video generation. In practice, it can also be applied to scenarios such as background filling and texture supplementation for unseen poses.
+                    </p>
+
+                    <p style="margin: 0; margin-top: 10px;">
+    The video at the bottom does not include additional reference-frame fusion. Since multi-view data is difficult to obtain and our dataset was not trained using multi-view data, you’ll notice that reconstruction fails in some cases with extreme viewing angles.
+                    </p>
+
+                    <p style="margin: 0; margin-top: 10px;">
+                        Case 1 & 2: Demonstrate the supplementary effect of multiple keyframes on viewing angles, Case 3: Demonstrate the supplementary effect of multiple keyframes on background completion
+                    </p>
+                </div>
+                </div>
+                <table style="table-layout: fixed;">
+                <tbody style="background-color: #d3d3d3;">
+                    <tr>
+                        <td>
+                            <p><strong>Case 1: (Please zoom in to view details.) </strong>
+                                <br>Demonstrate the supplementary effect of multiple keyframes on viewing angles</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" style="text-align: center;"> 
+                            <video width="60%" controls style="margin: 0 auto; display: block;"> 
+                                <source src="gate_map/gate_map_score.mp4" type="video/mp4"> 
+                            </video> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Case 2: (Please zoom in to view details.)</strong>
+                                <br>Demonstrate the supplementary effect of multiple keyframes on viewing angles</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" style="text-align: center;"> 
+                            <video width="60%" controls style="margin: 0 auto; display: block;"> 
+                                <source src="gate_map/gate_map_score2.mp4" type="video/mp4"> 
+                            </video> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Case 3: (Please zoom in to view details.) </strong>
+                                <br>Demonstrate the supplementary effect of multiple keyframes on background completion (Around 3nd second)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" style="text-align: center;"> 
+                            <video width="60%" controls style="margin: 0 auto; display: block;"> 
+                                <source src="gate_map/gate_map_score3.mp4" type="video/mp4"> 
+                            </video> 
+                        </td>
+                    </tr>
+                </tbody>
+
+                </table>
+
+                 <p><center><font size="2"> Video samples are modified from <a href="https://github.com/neeek2303/EMOPortraits" class="has-text-centered"> EMOPortrait </a>  </font></center></p>
+                
+
+                 
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div id="audio-driven-talking-face" class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <hr style="margin-top:0px">
+                    <p><center><strong><font size="5">Audio-Driven / Video Self-Reenactment</font></strong></center></p>
+                    <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                        <p style="margin: 0;">
+                            This section aims to evaluate both <strong>audio-driven talking head generation</strong> and <strong>face reenactment</strong>, defined as follows:
+                            <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                                <li><strong>Face Reenactment:</strong> To assess <strong>rendering performance</strong>, we use only the first frame of a video and subsequent motion-driven signals to reconstruct the original video sequence. By comparing the synthesized results to the ground-truth footage, we can effectively measure the accuracy and fidelity of the rendering process.</li>
+                                <li><strong>Audio-Driven Talking Head Generation:</strong> To examine <strong>editing capability</strong>, we start from a static initial frame and drive it with an audio track to create a new video. This setup reflects practical scenarios that require substantial or even complete editing, with full-sequence generation serving as a rigorous test of content-based editing.</li>
+                            </ul>
+                            
+                            In these tasks, <strong>key frames</strong> serve as additional reference material that the algorithm can access for extra texture information. Unless otherwise specified, all examples in this section use <strong>three reference frames</strong> and apply <strong>k-means clustering</strong> to guide the selection of these key frames.
+                        </p>
+                    </div>
+                    <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p><strong>Japanese:</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <div style="margin-right: 15px; display: flex; align-items: center;">
+                                        <span>Key frames:</span>
+                                    </div>
+                                    <div style="border: 1px solid #000; padding: 10px; border-radius: 5px;">
+                                        <img width="35%" src="generation/Japanese.png" alt="Key frames from Japanese video"> 
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="generation/Japanese_h264.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>Audio Driven</strong><br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>Video Reenactment</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            
+        <div id="video-reconstruction" class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <hr style="margin-top:0px">
+                    <table style="table-layout: fixed;">
+                    <tbody style="background-color: #d3d3d3;">
+
+                        <tr>
+                            <td>
+                                <p><strong>Korean:</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%"> 
+                                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <div style="margin-right: 15px; display: flex; align-items: center;">
+                                        <span>Key frames:</span>
+                                    </div>
+                                    <div style="border: 1px solid #000; padding: 10px; border-radius: 5px;">
+                                        <img width="35%" src="generation/Korean.png" alt="Key frames from Korean video"> 
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="100%"> 
+                                <video width="100%" controls> 
+                                    <source src="generation/Korean_h264.mp4" type="video/mp4"> 
+                                </video> 
+                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                    <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                    <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>Audio Driven</strong><br><small>(Result)</small></span>
+                                    <span style="flex: 1; text-align: center;"><strong>Video Reenactment</strong><br><small>(Result)</small></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            <div id="video-reconstruction" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <hr style="margin-top:0px">
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+    
+                            <tr>
+                                <td>
+                                    <p><strong>Mandarin:</strong></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <div style="margin-right: 15px; display: flex; align-items: center;">
+                                            <span>Key frames:</span>
+                                        </div>
+                                        <div style="border: 1px solid #000; padding: 10px; border-radius: 5px;">
+                                            <img width="35%" src="generation/Mandarin.png" alt="Key frames from Mandarin video"> 
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td width="100%"> 
+                                    <video width="100%" controls> 
+                                        <source src="generation/Mandarin_h264.mp4" type="video/mp4"> 
+                                    </video> 
+                                    <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                        <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                        <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                        <span style="flex: 1; text-align: center;"><strong>Audio Driven</strong><br><small>(Result)</small></span>
+                                        <span style="flex: 1; text-align: center;"><strong>Video Reenactment</strong><br><small>(Result)</small></span>
+                                    </div>
+    
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+                <div id="video-reconstruction" class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <hr style="margin-top:0px">
+                            <table style="table-layout: fixed;">
+                            <tbody style="background-color: #d3d3d3;">
+        
+                                <tr>
+                                    <td>
+                                        <p><strong>Swahili:</strong></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100%"> 
+                                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                            <div style="margin-right: 15px; display: flex; align-items: center;">
+                                                <span>Key frames:</span>
+                                            </div>
+                                            <div style="border: 1px solid #000; padding: 10px; border-radius: 5px;">
+                                                <img width="35%" src="generation/Swahili.png" alt="Key frames from Swahili video"> 
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+        
+                                <tr>
+                                    <td width="100%"> 
+                                        <video width="100%" controls> 
+                                            <source src="generation/Swahili_h264.mp4" type="video/mp4"> 
+                                        </video> 
+                                        <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                            <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                            <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                            <span style="flex: 1; text-align: center;"><strong>Audio Driven</strong><br><small>(Result)</small></span>
+                                            <span style="flex: 1; text-align: center;"><strong>Video Reenactment</strong><br><small>(Result)</small></span>
+                                        </div>
+        
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="video-reconstruction" class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <hr style="margin-top:0px">
+                                <table style="table-layout: fixed;">
+                                <tbody style="background-color: #d3d3d3;">
+            
+                                    <tr>
+                                        <td>
+                                            <p><strong>Turkish:</strong></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                                    <span>Key frames:</span>
+                                                </div>
+                                                <div style="border: 1px solid #000; padding: 10px; border-radius: 5px;">
+                                                    <img width="35%" src="generation/Turkish.png" alt="Key frames from Turkish video"> 
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="generation/Turkish_h264.mp4" type="video/mp4"> 
+                                            </video> 
+                                            <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                                <span style="flex: 1; text-align: center;">Source Video<br><small>(Provide Texture)</small></span>
+                                                <span style="flex: 1; text-align: center;">Driven Video<br><small>(Provide Motion)</small></span>
+                                                <span style="flex: 1; text-align: center;"><strong>Audio Driven</strong><br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;"><strong>Video Reenactment</strong><br><small>(Result)</small></span>
+                                            </div>
+            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                <br>
+                <p><center><font size="2"> Video samples are from <a href="https://x-lance.github.io/VQTalker/" class="has-text-centered"> MNTE dataset</a>  </font></center></p>
+
+                <p><center>You can download MNTE dataset from <a href="https://drive.google.com/drive/folders/1qwSayErcN75P_GUQPVah8BltJg8mro2G?usp=sharing" target="_blank">here</a></center></p>
+
+    </section>
+
+
+    <section class="section">
+        <div id="method-comparison-audio-driven" class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <hr style="margin-top:0px">
+                    <p><center><strong><font size="5">Method Comparison (Audio-Driven)</font></strong></center></p>
+                    <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                        <p style="margin: 0;">
+                            This section focuses on comparing our approach with <strong>one-shot talking head methods</strong>. 
+                            
+                            From the first column to the last, we show: <strong>Source Image</strong> (providing texture), followed by results from <strong>SadTalker</strong>, <strong>PDFGC</strong>, <strong>EAT</strong>, <strong>AniTalker</strong>, <strong>EdTalk</strong>, <strong>EchoMimic</strong>, <strong>VQTalker</strong>, and finally <strong>RAGTalker</strong> (Ours). 
+                            
+                            Each method uses the same source image as input, enabling direct comparison of the generated results.
+                        </p>
+                    </div>
+                    <div id="video-reconstruction" class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <hr style="margin-top:0px">
+                                <table style="table-layout: fixed;">
+                                <tbody style="background-color: #d3d3d3;">
+            
+                                    <tr>
+                                        <td>
+                                            <p><strong>Driven by Audio:</strong></p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/1.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/2.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/3.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/4.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/5.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%"> 
+                                            <video width="100%" controls> 
+                                                <source src="method_comparsion_audio_driven/6.mp4" type="video/mp4"> 
+                                            </video> 
+                                           <br>
+            
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="100%"> 
+                                    
+                                            <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                                <span style="flex: 1; text-align: center;">Source Image<br><small>(Provide Texture)</small></span>
+                                                <span style="flex: 1; text-align: center;">SadTalker<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">PDFGC<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">EAT<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">AniTalker<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">EdTalk<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">EchoMimic<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;">VQTalker<br><small>(Result)</small></span>
+                                                <span style="flex: 1; text-align: center;"><strong>RAGTalker(Ours)</strong><br><small>(Result)</small></span>
+                                            </div>
+            
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        <p><center><font size="2"> Video samplea are from <a href="https://x-lance.github.io/VQTalker/" class="has-text-centered"> MNTE dataset</a>  </font></center></p>
+
+                        <p><center>You can download MNTE dataset from <a href="https://drive.google.com/drive/folders/1qwSayErcN75P_GUQPVah8BltJg8mro2G?usp=sharing" target="_blank">here</a></center></p>
+                        
+        </section>
+
+
+        <section class="section">
+            <div id="method-comparison-video-reconstruction" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <hr style="margin-top:0px">
+                        <p><center><strong><font size="5">Method Comparison (Video-Reconstruction)</font></strong></center></p>
+                        <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                            <p style="margin: 0;">
+                                This section compares our approach with <strong>video reenactment methods</strong>, where the motion information from a video is applied to its first frame to reconstruct the entire sequence. By removing audio from the equation, we isolate and evaluate each algorithm's <strong>single-frame reconstruction accuracy</strong>, focusing primarily on <strong>rendering performance</strong>.
+                            </p>
+                            
+                            <p style="margin: 10px 0 0 0;">
+                                From left to right, the columns show the <strong>Source Image</strong> (providing texture) and the corresponding reenactment results from <strong>FOMM</strong>, <strong>Face Vid2Vid</strong>, <strong>LIA</strong>, <strong>EMOPortrait</strong>, <strong>LivePortrait</strong>, and finally <strong>RAGTalker</strong> (Ours).
+                            </p>
+                        </div>
+                        <div id="video-reconstruction" class="container">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <hr style="margin-top:0px">
+                                    <table style="table-layout: fixed;">
+                                    <tbody style="background-color: #d3d3d3;">
+                
+                                        <tr>
+                                            <td>
+                                                <p><strong>Driven by Video:</strong></p>
+                                            </td>
+                                        </tr>
+    
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/1.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/2.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/3.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/4.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/5.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/6.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="method_comparsion_video_recon/7.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+
+                                      
+                                        <tr>
+                                            <td width="100%"> 
+    
+                                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                                    <span style="flex: 1; text-align: center;">Source Image<br><small>(Provide Texture)</small></span>
+                                                    <span style="flex: 1; text-align: center;">FOMM<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">Face Vid2Vid<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">LIA<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">EMOPortrait<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">LivePortrait<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker(Ours)</strong><br><small>(Result)</small></span>
+                                                </div>
+                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            </div>
+                                </div>
+                            </div>
+    
+                            </div>
+    
+                            <p><center><font size="2"> Video samples are from <a href="https://github.com/MRzzm/HDTF/" class="has-text-centered"> HDTF dataset</a>  </font></center></p>
+    
+                          
+            </section>
+
+        <section class="section">
+            <div id="clustering-analysis" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <hr style="margin-top:0px">
+                        <p><center><strong><font size="5">Clustering Analysis</font></strong></center></p>
+                        <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                            <p style="margin: 0;">
+                               <strong>Clustering Analysis</strong> aims to visualize our clustering approach. We employ the <strong>k-means algorithm</strong>, leveraging video keypoints to identify key frames.
+                            </p>
+                            <p style="margin: 10px 0 0 0;">
+                               The results, shown for multiple videos, demonstrate that this <strong>clustering method</strong> effectively captures the most representative <strong>actions</strong> and <strong>expressions</strong> in the original footage.
+                            </p>
+                        </div>
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+                            <!-- Video 1 -->
+                            <tr>
+                                <td>
+                                    <p>Video 1:</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <video width="100%" controls> 
+                                                <source src="clustering/1.mp4" type="video/mp4"> 
+                                            </video>
+                                            <p style="text-align: center; margin-top: 5px;">Original Video</p>
+                                        </div>
+                                        <div style="flex: 3; margin-left: 15px;">
+                                            <img width="100%" src="clustering/1.png" alt="Clustered texture reference frames">
+                                            <p style="text-align: center; margin-top: 5px;">Clustered Texture Reference Frames</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+                            <!-- Video 2 -->
+                            <tr>
+                                <td>
+                                    <p>Video 2:</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <video width="100%" controls> 
+                                                <source src="clustering/2.mp4" type="video/mp4"> 
+                                            </video>
+                                            <p style="text-align: center; margin-top: 5px;">Original Video</p>
+                                        </div>
+                                        <div style="flex: 3; margin-left: 15px;">
+                                            <img width="100%" src="clustering/2.png" alt="Clustered texture reference frames">
+                                            <p style="text-align: center; margin-top: 5px;">Clustered Texture Reference Frames</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+                            <!-- Video 3 -->
+                            <tr>
+                                <td>
+                                    <p>Video 3:</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <video width="100%" controls> 
+                                                <source src="clustering/3.mp4" type="video/mp4"> 
+                                            </video>
+                                            <p style="text-align: center; margin-top: 5px;">Original Video</p>
+                                        </div>
+                                        <div style="flex: 3; margin-left: 15px;">
+                                            <img width="100%" src="clustering/3.png" alt="Clustered texture reference frames">
+                                            <p style="text-align: center; margin-top: 5px;">Clustered Texture Reference Frames</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+                            <!-- Video 4 -->
+                            <tr>
+                                <td>
+                                    <p>Video 4:</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <video width="100%" controls> 
+                                                <source src="clustering/4.mp4" type="video/mp4"> 
+                                            </video>
+                                            <p style="text-align: center; margin-top: 5px;">Original Video</p>
+                                        </div>
+                                        <div style="flex: 3; margin-left: 15px;">
+                                            <img width="100%" src="clustering/4.png" alt="Clustered texture reference frames">
+                                            <p style="text-align: center; margin-top: 5px;">Clustered Texture Reference Frames</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        
+                        <table style="table-layout: fixed;">
+                        <tbody style="background-color: #d3d3d3;">
+                            <!-- Video 5 -->
+                            <tr>
+                                <td>
+                                    <p>Video 5:</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"> 
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <video width="100%" controls> 
+                                                <source src="clustering/5.mp4" type="video/mp4"> 
+                                            </video>
+                                            <p style="text-align: center; margin-top: 5px;">Original Video</p>
+                                        </div>
+                                        <div style="flex: 3; margin-left: 15px;">
+                                            <img width="100%" src="clustering/5.png" alt="Clustered texture reference frames">
+                                            <p style="text-align: center; margin-top: 5px;">Clustered Texture Reference Frames</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+            </br>
+            <p><center><font size="2"> Video samples are from <a href="https://www.microsoft.com/en-us/research/project/vasa-1/" class="has-text-centered">vasa1</a>, <a href="https://x-lance.github.io/VQTalker/" class="has-text-centered">MNTE dataset</a>, and <a href="https://github.com/MRzzm/HDTF/" class="has-text-centered">HDTF dataset</a>  </font></center></p>
+                
+        </section>
+        <section class="section">
+            <div id="video-editing-case" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <hr style="margin-top:0px">
+                        <p><center><strong><font size="5">Video Editing Case</font></strong></center></p>
+                        
+                        <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                            <p style="margin: 0;">
+                                This section evaluates the algorithm's <strong>text-based editing potential capabilities</strong>, specifically in five key operations:
+                            </p>
+                            <div style="text-align: left; margin: 10px 0;">
+                                <img width="30%" src="edit/editing_demo.png" alt="Editing demonstration">
+                            </div>
+                            <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                                <li><strong>Substituting:</strong> Replaces certain words or segments</li>
+                                <li><strong>Adding:</strong> Inserts extra text</li>
+                                <li><strong>Deleting:</strong> Removes specified content</li>
+                                <li><strong>Translating:</strong> Performs cross-lingual conversions</li>
+                                <li><strong>Continuing content:</strong> Generates new material appended to existing text</li>
+                            </ul>
+
+                            <p style="margin: 0;">
+                                We employ our <strong>DiT module</strong>, which masks out the regions to be edited, then guides the model to incorporate both <strong>contextual cues</strong> and <strong>new audio signals</strong>.
+                            </p>
+                            
+                            <p style="margin-top: 10px; margin: 0;">
+                                When the updated audio content does not align with the existing video, the algorithm <strong>removes or inserts frames</strong> accordingly. For continuing content, we <strong>flip the video</strong> to maintain consistent frame counts before mask-filling. All audio in this section is generated using <strong>edge tts</strong>.
+                            </p>
+                            <div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                            <!-- Left column -->
+                            <div style="width: 48%; background-color: #d3d3d3; margin-bottom: 20px; padding: 10px;">
+                                <p>Substituting:</p>
+                                <video width="100%" controls> 
+                                    <source src="edit/1Substituting_Case.mp4" type="video/mp4"> 
+                                </video>
+                            </div>
+                            
+                            <!-- Right column -->
+                            <div style="width: 48%; background-color: #d3d3d3; margin-bottom: 20px; padding: 10px;">
+                                <p>Add:</p>
+                                <video width="100%" controls> 
+                                    <source src="edit/2_add_case.mp4" type="video/mp4"> 
+                                </video>
+                            </div>
+                            
+                            <!-- Left column, second row -->
+                            <div style="width: 48%; background-color: #d3d3d3; margin-bottom: 20px; padding: 10px;">
+                                <p>Deleting:</p>
+                                <video width="100%" controls> 
+                                    <source src="edit/3_deleting_case.mp4" type="video/mp4"> 
+                                </video>
+                            </div>
+                            
+                            <!-- Right column, second row -->
+                            <div style="width: 48%; background-color: #d3d3d3; margin-bottom: 20px; padding: 10px;">
+                                <p>Transform:</p>
+                                <video width="100%" controls> 
+                                    <source src="edit/4_trans_case.mp4" type="video/mp4"> 
+                                </video>
+                            </div>
+                            
+                            <!-- Center column, third row (full width) -->
+                            <div style="width: 48%; background-color: #d3d3d3; padding: 10px;">
+                                <p>Continue:</p>
+                                <video width="100%" controls> 
+                                    <source src="edit/5_continue_case.mp4" type="video/mp4"> 
+                                </video>
+                            </div>
+                        </div>
+                        <p><center><font size="2"> Video sample is from <a href="https://www.microsoft.com/en-us/research/project/vasa-1/" class="has-text-centered"> vasa1</a>  </font></center></p>
+                
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div id="ablation-study" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <hr style="margin-top:0px">
+                        <p><center><strong><font size="5">Ablation Study</font></strong></center></p>
+                        <div style="border: 1px solid black; padding: 10px; overflow: hidden;">
+                            <p style="margin: 0;">
+                                This section presents our <strong>ablation study</strong>, designed to evaluate both the <strong>key modules</strong> in our framework and two reference frame selection strategies—<strong>Random Frame</strong> (using random frame counts) versus <strong>Clustered Frame</strong> (Ours, using a clustering approach). From left to right, the columns depict the <strong>Source Image</strong> (providing texture), <strong>GT</strong> (providing motion), <strong>W/O M.D.</strong>, <strong>AVG</strong>, <strong>W/O F.M.</strong>, <strong>Hard Fusion</strong>, <strong>Random Frame</strong>, and <strong>Clustered Frame</strong> (Ours).
+                            </p>
+                            
+                            <p style="margin: 10px 0 0 0;">
+                                The abbreviations above represent our key components: <strong>motion difference (M.D.)</strong>, <strong>feature matching (F.M.)</strong>, and <strong>soft gating</strong>. Each ablation experiment systematically evaluates their individual contributions to the overall synthesis quality.
+                                Notably, all experiments except for "Random Frame" utilize our key frame selection strategy, which demonstrably improves background completion quality. When any module is removed, visible flickering appears in the rendered output, indicating the model's reduced capability to effectively perform texture fusion across frames.
+                            </p>
+                            
+                       
+                            
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <hr style="margin-top:0px">
+                                    <table style="table-layout: fixed;">
+                                    <tbody style="background-color: #d3d3d3;">
+                
+                                        <tr>
+                                            <td>
+                                                <p><strong>Driven by Video:</strong></p>
+                                            </td>
+                                        </tr>
+    
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="audio_driven_hdtf_abalation_study/1.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="audio_driven_hdtf_abalation_study/2.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="audio_driven_hdtf_abalation_study/3.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                
+                                        <tr>
+                                            <td width="100%"> 
+                                                <video width="100%" controls> 
+                                                    <source src="audio_driven_hdtf_abalation_study/4.mp4" type="video/mp4"> 
+                                                </video> 
+                                               <br>
+                
+                                            </td>
+                                        </tr>
+                
+                
+                                      
+                                        <tr>
+                                            <td width="100%"> 
+    
+                                                <div style="display: flex; justify-content: space-between; margin-top: 2px; text-align: justify;">
+                                                    <span style="flex: 1; text-align: center;">Source Image<br><small>(Provide Texture)</small></span>
+                                                    <span style="flex: 1; text-align: center;">GT<br><small>(Provide Motion)</small></span>
+                                                    <span style="flex: 1; text-align: center;">W/O M.D.<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">AVG<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">W/O F.M.<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">Hard Fusion<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;">Random Frame<br><small>(Result)</small></span>
+                                                    <span style="flex: 1; text-align: center;"><strong>RAGTalker(Ours)</strong><br><small>(Result)</small></span>
+                                                </div>
+                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            </div>
+                                </div>
+                            </div>
+    
+                            </div>
+    
+                            <p><center><font size="2"> Video samples are from <a href="https://github.com/MRzzm/HDTF/" class="has-text-centered"> HDTF dataset</a>  </font></center></p>
+    
+                          
+            </section>
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Ethical Consideration
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <p>
+                The potential misuse of lifelike digital human face generation, such as for creating fraudulent identities or disseminating misinformation, necessitates preemptive ethical measures. Before utilizing these models, it is crucial for organizations to integrate ethical guidelines into their policies, ensuring the application of this technology emphasizes consent, transparency, and accountability. Furthermore, it is recommended to embed visible or invisible digital watermarks in any generated content.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+    });
+</script>
+
+</html>
